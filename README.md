@@ -2,7 +2,7 @@
 
 This project is a React application built with TypeScript. It uses Material-UI for the user interface components and Cypress for end-to-end testing.
 
-![image](https://github.com/coheia/tabela-fipe/assets/5176595/354c7b33-49ff-4b0e-97b2-e65bccee7c07)
+![ezgif-3-e753533829](https://github.com/coheia/tabela-fipe/assets/5176595/85248aa9-66fa-45f3-b2ed-20c9bd7b4265)
 
 Table of Contents
 
