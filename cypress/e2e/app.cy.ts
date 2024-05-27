@@ -153,7 +153,8 @@ describe('Search for vehicle prices using tabela FIPE', () => {
       fipePriceForm.elements.modelAutocomplete().should('have.value', '');
     });
     it(`Then the year field should be not visible`, () => {
-      fipePriceForm.elements.yearAutocomplete().should('not.exist')
+      fipePriceForm.elements.yearAutocomplete().should('not.exist');
+      cy.wait(timeout);
     });
   });
 });
