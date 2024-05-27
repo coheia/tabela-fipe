@@ -11,22 +11,22 @@ class FipePriceForm {
   selectBrand(text: string) {
     if (!text) return;
     this.elements.brandAutocomplete().type(text);
-    fipePriceForm.elements.brandAutocomplete().type('{downArrow}');
-    fipePriceForm.elements.brandAutocomplete().type('{enter}');
+    this.elements.brandAutocomplete().type('{downArrow}');
+    this.elements.brandAutocomplete().type('{enter}');
   }
 
   selectModel(text: string) {
     if (!text) return;
     this.elements.modelAutocomplete().type(text);
-    fipePriceForm.elements.modelAutocomplete().type('{downArrow}');
-    fipePriceForm.elements.modelAutocomplete().type('{enter}');
+    this.elements.modelAutocomplete().type('{downArrow}');
+    this.elements.modelAutocomplete().type('{enter}');
   }
 
   selectYear(text: string) {
     if (!text) return;
     this.elements.yearAutocomplete().type(text);
-    fipePriceForm.elements.yearAutocomplete().type('{downArrow}');
-    fipePriceForm.elements.yearAutocomplete().type('{enter}');
+    this.elements.yearAutocomplete().type('{downArrow}');
+    this.elements.yearAutocomplete().type('{enter}');
   }
 
   clickSubmit() {
@@ -37,13 +37,13 @@ class FipePriceForm {
 const fipePriceForm = new FipePriceForm();
 
 describe('Search for vehicle prices using tabela FIPE', () => {
-  describe('User searches for a vehicle price by brand, model, and year', () => {
-    const input = {
-      brand: 'Toyota',
-      model: 'Corolla',
-      year: '2020',
-    };
+  const input = {
+    brand: 'Toyota',
+    model: 'Corolla',
+    year: '2020',
+  };
 
+  describe('User searches for a vehicle price by brand, model, and year', () => {
     it('Given the user is on the tabela FIPE homepage', () => {
       cy.visit('/');
     });
@@ -71,16 +71,11 @@ describe('Search for vehicle prices using tabela FIPE', () => {
       cy.url().should('include', 'brand');
       cy.url().should('include', 'model');
       cy.url().should('include', 'year');
+      cy.get('#price').should('be.visible');
     });
   });
 
   describe('User searches for a vehicle price with incomplete information', () => {
-    const input = {
-      brand: 'Toyota',
-      model: 'Corolla',
-      year: '2020',
-    };
-
     it('Given the user is on the tabela FIPE homepage', () => {
       cy.visit('/');
     });
@@ -104,7 +99,7 @@ describe('Search for vehicle prices using tabela FIPE', () => {
       model: 'NonExistentModel',
       year: '2020',
     };
-
+    
     it('Given the user is on the tabela FIPE homepage', () => {
       cy.visit('/');
     });
@@ -122,12 +117,6 @@ describe('Search for vehicle prices using tabela FIPE', () => {
   });
 
   describe('User clears the selected model', () => {
-    const input = {
-      brand: 'Toyota',
-      model: 'Corolla',
-      year: '2020',
-    };
-
     it('Given the user is on the tabela FIPE homepage', () => {
       cy.visit('/');
     });
