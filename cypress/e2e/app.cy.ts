@@ -1,4 +1,4 @@
-const timeout = 1000*5;
+const timeout = 500;
 
 class FipePriceForm {
   elements = {
